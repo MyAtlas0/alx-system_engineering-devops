@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "Replace A-Z" | tr 'Ac' 'Ze'
+echo 'Replace all characters 'A'and 'c'' | tr 'Ac' 'Ze'
