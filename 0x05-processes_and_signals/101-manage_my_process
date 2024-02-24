@@ -1,31 +1,31 @@
 #!/usr/bin/env bash
-# Manages the script manage_my_process.
+# This script manages 'manage_my_process'
 
-if [ "${1}" == "start" ]; then
-	if [ -f /var/run/my_process.pid ]; then
-		echo "manage_my_process is already running."
-	else
+if [ $# -gt 0 ]; then
+	if [ "$1" == "start" ]; then
 		./manage_my_process &
 		echo "$!" > /var/run/my_process.pid
-		echo "manage_my_process started."
-	fi
-elif [ "${1}" == "stop" ]; then
-	if [ -f /var/run/my_process.pid ]; then
-		kill "$(cat /var/run/my_process.pid)"
-		rm /var/run/my_process.pid
-		echo "manage_my_process stopped."
-	else
-		echo "manage_my_process is not running."
-	fi
-elif [ "${1}" == "restart" ]; then
-	if [ -f /var/run/my_process.pid ]; then
-		kill "$(cat /var/run/my_process.pid)"
-		rm /var/run/my_process.pid
+		echo "manage_my_process started"
+	elif [ "$1" == "stop" ]; then
+		if [ -f "/var/run/my_process.pid" ]; then
+			echo "manage_my_process stopped"
+			kill "$(cat /var/run/my_process.pid)"
+			rm -f /var/run/my_process.pid
+		else
+			echo "PID file not found. Process may not be running."
+		fi
+	elif [ "$1" == "restart" ]; then
+		if [ -f "/var/run/my_process.pid" ]; then
+			echo "manage_my_process restarted"
+			kill "$(cat /var/run/my_process.pid)"
+			rm -f /var/run/my_process.pid
+		else
+			echo "PID file not found. Process may not be running."
+		fi
 		./manage_my_process &
 		echo "$!" > /var/run/my_process.pid
-		echo "manage_my_process restarted."
 	else
-		echo "manage_my_process is not running."
+		echo "Usage: manage_my_process {start|stop|restart}"
 	fi
 else
 	echo "Usage: manage_my_process {start|stop|restart}"
