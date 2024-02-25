@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Displays numbers 1 to 100 using a while loop.
+# But, displays "FizzBuzz" when the number is a multiple of 3 and 5
+# Followed by "Fizz" when the number is a multiple of 3
+# And, Finally "Buzz" when the number is a multiple of 5...
+
+numbers=1
+while [ $numbers -le 100 ]
+do
+	if (( numbers % 3 == 0 && numbers % 5 == 0 ))
+	then
+		echo "FizzBuzz"
+	elif (( numbers % 3 == 0 ))
+	then
+		echo "Fizz"
+	elif (( numbers % 5 == 0 ))
+	then
+		echo "Buzz"
+	else
+		echo "$numbers"
+	fi
+	(( numbers++ ))
+done
