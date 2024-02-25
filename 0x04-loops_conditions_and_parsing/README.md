@@ -2,7 +2,7 @@
 
 
 
-Last Updated: 23/02/2024;
+Last Updated: 25/02/2024;
 Contributor(s): MyAtlas0;
 
 
@@ -34,3 +34,58 @@ SSH and RSA keys will be covered in depth in a later project.
 
 
 
+1. For Best School loop
+
+#mandatory
+Write a Bash script that displays Best School 10 times.
+
+Requirement:
+
+You must use the for loop (while and until are forbidden)
+Note that:
+
+The first line of my Bash script starts with #!/usr/bin/env bash
+The second line of my Bash scripts is a comment explaining what it is doing
+
+# Filename: 1-for_best_school
+
+
+
+
+2. While Best School loop
+
+#mandatory
+Write a Bash script that displays Best School 10 times.
+
+Requirements:
+
+You must use the while loop (for and until are forbidden)
+
+# Filename: 2-while_best_school
+
+
+
+3. Until Best School loop
+
+#mandatory
+Write a Bash script that displays Best School 10 times.
+
+Requirements:
+
+You must use the until loop (for and while are forbidden)
+
+# Filename: 3-until_best_school
+
+
+
+4. If 9, say Hi!
+
+#mandatory
+Write a Bash script that displays Best School 10 times, but for the 9th iteration, displays Best School and then Hi on a new line.
+
+Requirements:
+
+You must use the while loop (for and until are forbidden)
+You must use the if statement
+
+# Filename: 4-if_9_say_hi
