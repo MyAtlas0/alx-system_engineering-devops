@@ -4,7 +4,7 @@
 # Followed by "bad luck from Japan" on the 9th iteration
 # And, Finally "bad luck from Italy" during the 17th iteration of the loop..
 
-count=0
+count=1
 while [ $count -lt 21 ]
 do
 	echo $count
