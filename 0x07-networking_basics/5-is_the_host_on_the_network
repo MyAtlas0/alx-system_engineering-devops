@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+#
+# Description:
+# Pings an IP address received as an argument 5 times.
+#
+# Usage:
+#	./ping_ip.sh {IP_ADDRESS}
+#
+# Arguments:
+#	IP_ADDRESS: The IP address to ping.
+#
+# Exit Codes:
+#	0: Successful execution.
+#	1: No IP address provided.
+#	2: Ping command failed.
+
+if [ $# -eq 0 ]; then
+	echo "Usage: ./ping_ip.sh {IP_ADDRESS}"
+	exit 1
+fi
+
+IP_ADDRESS=$1
+
+ping -c 5 "$IP_ADDRESS"
+if [ $? -ne 0 ]
+then
+	echo "Failed to ping $IP_ADDRESS"
+	exit 2
+fi
+
+exit 0
