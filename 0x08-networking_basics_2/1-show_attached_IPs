@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 #
 # Description:
-#	Displays all active IPv4 addresses on the machine.
+#       Displays all active IPv4 addresses on the machine.
 #
 # Usage:
-#	./1-show_attached_IPs | cat -e
+#       ./1-show_attached_IPs | cat -e
 
-# Check if ifconfig command is available
-if ! command -v ifconfig &> /dev/null
+# Check if ip command is available
+if ! command -v ip &> /dev/null
 then
-	echo "Error: ifconfig command not found."
-	exit 1
+        echo "Error: ip command not found."
+        exit 1
 fi
 
 # Extract and display IPv4 addresses
-ifconfig | grep -Eo "inet (addr:)?([0-9]*\.){3}[0-9]*" | cut -b 11-
+ip -4 addr show | awk '/inet / {print $2}' | cut -d '/' -f 1
